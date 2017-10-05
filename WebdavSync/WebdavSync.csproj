@@ -61,6 +61,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="WebDav.Client, Version=2.0.1.0, Culture=neutral, PublicKeyToken=daed9acc7deb9472, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebDav.Client.2.0.1\lib\net45\WebDav.Client.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

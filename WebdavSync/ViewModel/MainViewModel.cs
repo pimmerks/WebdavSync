@@ -1,4 +1,6 @@
 using GalaSoft.MvvmLight;
+using System.Collections.Generic;
+using WebdavSync.Model;
 
 namespace WebdavSync.ViewModel
 {
@@ -16,19 +18,28 @@ namespace WebdavSync.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+
+        public List<SyncItem> SyncItemList { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            SyncItemList = new List<SyncItem>();
+            if (IsInDesignMode)
+            {
+                // Code runs in Blend --> create design time data.
+                var t = new SyncItem
+                {
+                    Name = "Test",
+                    LocalPath = "C:/test",
+                    WebdavPath = "http://example.com/webdav"
+                };
+
+                SyncItemList.Add(t);
+                return;
+            }
         }
     }
 }

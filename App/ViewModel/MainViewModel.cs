@@ -1,9 +1,13 @@
 using GalaSoft.MvvmLight;
 using System.Collections.Generic;
-using WebdavSync.Model;
 
-namespace WebdavSync.ViewModel
+namespace WebdavSync.App.ViewModel
 {
+    using System;
+    using System.Collections.ObjectModel;
+    using Microsoft.Practices.ServiceLocation;
+    using WebdavSync.Model;
+
     /// <summary>
     /// This class contains properties that the main View can data bind to.
     /// <para>
@@ -18,27 +22,52 @@ namespace WebdavSync.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-
-        public List<SyncItem> SyncItemList { get; set; }
+        public List<SyncFolder> SyncFolderList { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
-            SyncItemList = new List<SyncItem>();
+            SyncFolderList = new List<SyncFolder>();
             if (IsInDesignMode)
             {
                 // Code runs in Blend --> create design time data.
-                var t = new SyncItem
+                var t = new SyncFolder
                 {
                     Name = "Test",
                     LocalPath = "C:/test",
                     WebdavPath = "http://example.com/webdav"
                 };
 
-                SyncItemList.Add(t);
+                SyncFolderList.Add(t);
                 return;
+            }
+
+            NewDialogVm = new NewDialogViewModel();
+        }
+
+        private ObservableCollection<Webdav> webdavList;
+
+        public ObservableCollection<Webdav> WebdavList
+        {
+            get => this.webdavList;
+            set
+            {
+                this.webdavList = value;
+                this.RaisePropertyChanged();
+            }
+        }
+
+        private NewDialogViewModel newDialogVm;
+
+        public NewDialogViewModel NewDialogVm
+        {
+            get => this.newDialogVm;
+            set
+            {
+                this.newDialogVm = value;
+                this.RaisePropertyChanged();
             }
         }
     }

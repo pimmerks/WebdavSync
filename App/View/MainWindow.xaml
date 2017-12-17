@@ -41,7 +41,7 @@
 
             <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top" VerticalAlignment="Stretch">
                 <DockPanel>
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Webdav Sync</TextBlock>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Config Sync</TextBlock>
                 </DockPanel>
             </materialDesign:ColorZone>
 

@@ -13,6 +13,7 @@ namespace WebdavSync.Model
     /// <summary>
     /// The <see cref="SyncFolder"/>.
     /// </summary>
+    [Serializable]
     public class SyncFolder
     {
         /// <summary>

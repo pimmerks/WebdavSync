@@ -15,28 +15,23 @@
     public class SyncRunner
     {
         private static readonly ILog Logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        public bool IsRunning { get; set; }
 
-        public SyncRunner()
+        private readonly SyncConfig webdavConfig;
+
+        public SyncRunner(SyncConfig webdavConfig)
         {
-
+            this.webdavConfig = webdavConfig;
+            Logger.Info($"Creating sync runner with {webdavConfig.WebdavList.Count} webdav(s).");
         }
 
-        public async Task<SyncResult> Sync(SyncFolder folder)
+        public async Task<SyncResult> Sync()
         {
-            throw new NotImplementedException();
-        }
+            Logger.Info("Starting sync");
+            Thread.Sleep(1000);
 
-        public async Task<Dictionary<SyncFolder, SyncResult>> SyncMultple(List<SyncFolder> syncFolders)
-        {
-            var result = new Dictionary<SyncFolder, SyncResult>();
+            Logger.Info("Sync finished");
 
-            foreach (var syncFolder in syncFolders)
-            {
-                result.Add(syncFolder, await this.Sync(syncFolder));
-            }
-
-            return result;
+            return new SyncResult(this.webdavConfig);
         }
     }
 }

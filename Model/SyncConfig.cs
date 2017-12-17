@@ -13,6 +13,7 @@ namespace WebdavSync.Model
     /// <summary>
     /// The <see cref="SyncConfig"/>.
     /// </summary>
+    [Serializable]
     public class SyncConfig
     {
         /// <summary>
@@ -20,7 +21,9 @@ namespace WebdavSync.Model
         /// </summary>
         public SyncConfig()
         {
-
+            this.WebdavList = new List<Webdav>();
         }
+
+        public List<Webdav> WebdavList { get; set; }
     }
 }

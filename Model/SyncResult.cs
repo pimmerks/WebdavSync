@@ -13,14 +13,18 @@ namespace WebdavSync.Model
     /// <summary>
     /// The <see cref="SyncResult"/>.
     /// </summary>
+    [Serializable]
     public class SyncResult
     {
+        public SyncResult(SyncConfig configConfig)
+        {
+            this.Config = configConfig;
+        }
+
         public string ErrorMessage { get; set; }
 
         public bool Succeeded { get; set; }
 
-        public SyncFolder SyncFolder { get; set; }
-
-        public Webdav Webdav { get; set; }
+        public SyncConfig Config { get; }
     }
 }

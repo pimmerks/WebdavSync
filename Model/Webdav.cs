@@ -1,4 +1,4 @@
-// <copyright file="Webdav.cs" company="companyPlaceholder">
+// <copyright file="Config.cs" company="companyPlaceholder">
 // Copyright (c) companyPlaceholder. All rights reserved.
 // </copyright>
 
@@ -13,6 +13,7 @@ namespace WebdavSync.Model
     /// <summary>
     /// The <see cref="Webdav"/>.
     /// </summary>
+    [Serializable]
     public class Webdav
     {
         /// <summary>
@@ -20,7 +21,9 @@ namespace WebdavSync.Model
         /// </summary>
         public Webdav()
         {
-
+            this.SyncFolders = new List<SyncFolder>();
         }
+
+        public List<SyncFolder> SyncFolders { get; set; }
     }
 }
